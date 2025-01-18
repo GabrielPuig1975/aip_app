@@ -1,0 +1,8 @@
+body {
+  background-image: url("../assets/images/background.png");
+  background-size: cover; /* Hace que la imagen cubra toda la pantalla */
+  background-repeat: no-repeat; /* Evita que la imagen se repita */
+  background-position: center center; /* Centra la imagen en la pantalla */
+  height: 100vh; /* Asegura que el fondo cubra toda la altura de la pantalla */
+  margin: 0; /* Elimina el margen predeterminado */
+}

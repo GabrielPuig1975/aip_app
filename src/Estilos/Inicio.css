@@ -1,0 +1,7 @@
+.carou {
+  margin-top: 2%;
+}
+.carousel-item img {
+  object-fit: cover; /* Ajusta las imágenes para que se adapten bien al espacio */
+  height: 200px; /* Puedes ajustar la altura según tu diseño */
+}

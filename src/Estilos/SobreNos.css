@@ -1,0 +1,115 @@
+.modal {
+    display: flex; /* Flexbox para centrar el contenido */
+    justify-content: center; /* Centra el contenido horizontalmente */
+    align-items: center; /* Centra el contenido verticalmente */
+    position: fixed; /* Fija el modal a la pantalla */
+    top: 0;
+    left: 0;
+    width: 100vw; /* Asegúrate de que cubra todo el ancho de la pantalla */
+    height: 100vh; /* Asegúrate de que cubra todo el alto de la pantalla */
+    background-color: rgba(0, 0, 0, 0.7); /* Fondo oscuro y ligeramente transparente para el overlay */
+    z-index: 1050; /* Asegúrate de que el modal esté por encima de otros contenidos */
+    overflow: hidden; /* Prevenir scroll mientras el modal está abierto */
+    transition: opacity 0.3s ease-in-out; /* Animación suave al abrirse o cerrarse */
+  }
+  
+  /* El fondo del modal se hará más suave con una transición de opacidad */
+  .modal.fade {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-out;
+  }
+  
+  /* Cuando el modal está visible */
+  .modal.fade.show {
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  /* Modal dialog, el contenedor principal del contenido */
+  .modal-dialog {
+    max-width: 600px; /* Tamaño más grande pero controlado */
+    margin: 0; /* Elimina márgenes automáticos */
+    padding: 2rem; /* Agrega padding alrededor */
+    background-color: white; /* Fondo blanco para el contenido */
+    border-radius: 10px; /* Bordes redondeados para un aspecto elegante */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave alrededor del modal */
+    overflow: hidden; /* Evita que el contenido se desborde */
+  }
+  
+  /* Estilo para el encabezado del modal */
+  .modal-header {
+    border-bottom: 1px solid #eee; /* Línea sutil abajo */
+    padding-bottom: 1rem; /* Espacio extra en el fondo */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  /* Estilo para el título del modal */
+  .modal-title {
+    font-size: 1.5rem;
+    font-weight: 600; /* Título más prominente */
+    color: #333; /* Color oscuro para mayor contraste */
+  }
+  
+  /* Botón de cierre con estilo moderno */
+  .btn-close {
+    background-color: red;
+    border: none;
+    font-size: 1.5rem;
+    color: #f31515;
+    cursor: pointer;
+    transition: color 0.3s ease;
+  }
+  
+  .btn-close:hover {
+    color: #333; /* Cambio de color al pasar el mouse */
+  }
+  
+  /* Estilo del cuerpo del modal */
+  .modal-body {
+    padding: 1rem 0;
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.6;
+    text-align: justify;
+  }
+  
+  /* El texto dentro del modal */
+  .modal-text {
+    font-size: 1.1rem;
+    color: #333;
+    line-height: 1.6;
+    text-align: justify;
+  }
+  
+  /* Modal footer (si necesitas botones al final) */
+  .modal-footer {
+    border-top: 1px solid #eee; /* Línea sutil arriba */
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 1rem;
+  }
+  
+  .modal-footer .btn {
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+    padding: 0.5rem 1rem;
+    border: none;
+    transition: background-color 0.3s ease;
+  }
+  
+  .modal-footer .btn:hover {
+    background-color: #0056b3;
+  }
+  
+  .modal-footer .btn-secondary {
+    background-color: #6c757d;
+  }
+  
+  .modal-footer .btn-secondary:hover {
+    background-color: #495057;
+  }
+  

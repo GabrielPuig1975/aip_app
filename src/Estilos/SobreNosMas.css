@@ -1,0 +1,93 @@
+/* Fondo negro cubriendo toda la pantalla */
+.modalBackground {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7); /* Fondo oscuro semi-transparente */
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* Alinea las tarjetas al inicio de la pantalla */
+  z-index: 9999; /* Asegura que el modal esté encima de otros contenidos */
+  overflow: auto;
+  padding-top: 20px; /* Espacio superior entre el modal y las tarjetas */
+}
+
+/* Contenedor para todas las tarjetas */
+.cardsContainer {
+  display: flex;
+  flex-wrap: wrap; /* Permite que las tarjetas pasen a la siguiente fila */
+  justify-content: center; /* Centra las tarjetas en el contenedor */
+  gap: 12px; /* Espaciado entre las tarjetas */
+  width: 100%;
+  max-width: 1000px; /* Limita el ancho de las tarjetas en el modal */
+}
+
+/* Contenedor de cada tarjeta */
+.cards {
+  display: flex;
+  flex-direction: column; /* Apila la imagen y el texto dentro de la tarjeta */
+  background-color: transparent;
+  border-radius: 8px;
+  padding: 20px;
+  width: 200px; /* Define un ancho fijo para cada tarjeta */
+  height: auto; /* La altura se ajustará al contenido */
+  box-sizing: border-box;
+  min-height: 300px; /* Altura mínima de la tarjeta */
+  overflow: hidden;
+}
+
+/* Contenedor que centra la imagen y la descripción */
+.cards-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px; /* Espaciado entre la imagen y el texto */
+  height: 100%; /* Asegura que el contenido se ajuste correctamente */
+}
+
+/* Estilos para la imagen */
+.sobreNosImg {
+  border-radius: 50%; /* Círculo */
+  width: 150px; /* Ancho de la imagen */
+  height: 150px; /* Altura de la imagen */
+  object-fit: cover; /* Asegura que la imagen se recorte correctamente dentro del círculo */
+}
+
+/* Contenedor del texto */
+.cards-text {
+  margin: 0;
+  flex: 1; /* Hace que el texto ocupe el espacio disponible */
+  color: #FFF; /* Color del texto */
+  font-size: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px; /* Espaciado entre los párrafos */
+  height: 100%; /* Esto asegura que la tarjeta tenga la misma altura */
+}
+
+.cards-text p {
+  margin: 0;
+}
+
+/* Botón de cerrar */
+.fernerModal {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 50%;
+  z-index: 10000;
+}
+
+.fernerModal:hover {
+  background-color: darkred;
+}
