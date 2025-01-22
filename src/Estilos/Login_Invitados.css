@@ -1,6 +1,9 @@
 .modal-title {
     color: #000;
 }
+.modal-body {
+    width: 345px;
+}
 .form-floating>.form-control, .form-floating>.form-control-plaintext {
     padding: 1rem .75rem;
     margin-top: 4%;

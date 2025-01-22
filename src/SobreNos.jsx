@@ -4,15 +4,11 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import SobreNosMas from "./SobreNosMas";
 
-function SobreNos({ closeModal }) {
+function SobreNos({ cerrarModal }) {
   const [currentModal, setCurrentModal] = useState(null);
 
   const abrirModal = (modalType) => {
     setCurrentModal(modalType);
-  };
-
-  const cerrarModal = () => {
-    setCurrentModal(null);
   };
 
   return (
@@ -33,7 +29,7 @@ function SobreNos({ closeModal }) {
                   type="button"
                   className="btn-close"
                   aria-label="Close"
-                  onClick={closeModal}
+                  onClick={cerrarModal}
                 ></button>
               </div>
               <div className="modal-body">

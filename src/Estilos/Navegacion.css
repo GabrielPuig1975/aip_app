@@ -1,0 +1,62 @@
+nav {
+  margin: auto;
+  display: flex;
+  gap: 15px; /* Espacio entre los enlaces */
+  justify-content: space-around;
+}
+
+nav button {
+  color: #FFF;
+  font-weight: bold;
+  font-size: 20px;
+  border: none;
+  background-color: #b90c0c;
+}
+
+nav button:hover {
+  color: #2ca9bc; /* Color de hover para los links */
+}
+
+.login-icon {
+  position: absolute; /* Coloca el ícono flotante */
+  top: 20px;
+  right: 20px; /* Totalmente a la derecha */
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Espacio entre ícono y correo */
+}
+
+.logged {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.logged svg {
+  fill: #b90c0c;
+  cursor: pointer;
+}
+
+.user-email {
+  font-size: 14px;
+  color: #b90c0c;
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .App-header {
+    flex-wrap: wrap; /* Encabezado adaptable para pantallas pequeñas */
+  }
+
+  .title_img,
+  .right-content {
+    width: 100%;
+    text-align: center;
+  }
+
+  .login-icon {
+    top: auto;
+    bottom: 20px;
+    right: 10px;
+  }
+}

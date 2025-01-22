@@ -1,8 +1,8 @@
 // Registro de usuarios INVITADOS
 import { useState } from "react";
-import "./Estilos/RegistroUsuarios.css";
+import "./Estilos/Login_Invitados.css";
 
-function RegistroUsuarios({ closeModal }) {
+function RegistroUsuarios({ cerrarModal }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [repeatPass, setRepeatPass] = useState("");
@@ -49,7 +49,7 @@ function RegistroUsuarios({ closeModal }) {
         setEmail("");
         setPassword("");
         setRepeatPass("");
-        closeModal();
+        cerrarModal();
       } else {
         const data = await response.json();
         setError(data.error || "Error al registrar el usuario.");
@@ -75,7 +75,7 @@ function RegistroUsuarios({ closeModal }) {
             <button
               type="button"
               className="btn-close"
-              onClick={closeModal}
+              onClick={cerrarModal}
               aria-label="Close"
             ></button>
           </div>

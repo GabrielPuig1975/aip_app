@@ -1,66 +1,60 @@
-import { useState } from "react";
-import "./Estilos/Login.css";
+import { useState, useEffect } from "react";
+import { useAuth } from "./AuthContext";
+import "./Estilos/Login_Invitados.css";
 
-function Login({ closeModal, setLogged, setShowEmail, setUserEmail }) {
+function Login({ cerrarModal }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const { setLogged, setUserEmail } = useAuth();
+
+  //Verifico si está loggeado o no
+   console.log(`El correo activo es: ${email}`);
+
 
   const serverPort = import.meta.env.VITE_INVITADOS_SERVER_PORT;
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!email || !password) {
       setError("Por favor, complete todos los campos.");
       return;
     }
-    setError("");
-    handleLogin();
-  };
 
-  const handleLogin = () => {
-    if (!serverPort) {
-      setError("No se pudo conectar al servidor");
-      return;
-    }
-
-    fetch(`http://localhost:${serverPort}/api/usuario_invitado/login`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ email, password }),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        if (data.token) {
-          document.cookie = `authToken=${data.token}; path=/; secure; HttpOnly`;
-          closeModal();
-          setLogged(true);
-          setShowEmail(true);
-          setUserEmail(email); // Almacenar el email del usuario logueado
-        } else {
-          setError(data.error || "Error al autenticar");
-        }
-      })
-      .catch((err) => {
-        setError("Error al intentar iniciar sesión");
-        console.error(err);
+    try {
+      const response = await fetch(`http://localhost:${serverPort}/api/usuario_invitado/login`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password }),
       });
+
+      if (!response.ok) {
+        const message = await response.text();
+        throw new Error(message || "Error al autenticar");
+      }
+
+      const data = await response.json();
+      if (data.token) {
+        document.cookie = `authToken=${data.token}; path=/; secure; HttpOnly`;
+        setLogged(true);
+        console.log(setLogged);
+        setUserEmail(email);
+        cerrarModal();
+      } else {
+        throw new Error(data.error || "Error al autenticar");
+      }
+    } catch (err) {
+      setError(err.message);
+    }
   };
 
   return (
-    <div className="modal fade show" aria-hidden="false">
+    <div className="modal fade show" tabIndex="-1">
       <div className="modal-dialog">
-        <div className="modal-content form-container">
+        <div className="modal-content">
           <div className="modal-header">
-            <h5 className="modal-title">Login</h5>
-            <button
-              type="button"
-              className="btn-close"
-              onClick={closeModal}
-              aria-label="Close"
-            ></button>
+            <h1 className="modal-title">Login</h1>
+            <button type="button" className="btn-close" onClick={cerrarModal}></button>
           </div>
           <div className="modal-body">
             {error && <div className="alert alert-danger">{error}</div>}
@@ -72,9 +66,8 @@ function Login({ closeModal, setLogged, setShowEmail, setUserEmail }) {
                   placeholder="name@example.com"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  required
                 />
-                <label>Email address</label>
+                <label>Email</label>
               </div>
               <div className="form-floating mb-3">
                 <input
@@ -83,11 +76,10 @@ function Login({ closeModal, setLogged, setShowEmail, setUserEmail }) {
                   placeholder="Password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  required
                 />
-                <label>Password</label>
+                <label>Contraseña</label>
               </div>
-              <button type="submit" className="btn btn-primary">
+              <button type="submit" className="btn btn-primary w-100">
                 Entrar
               </button>
             </form>

@@ -1,6 +1,8 @@
 import { useState } from "react";
 
-function UsuariosData() {
+function RegistroDePersonalAIP(  ) {
+
+
   const [formData, setFormData] = useState({
     imagenPersonal: null, // Cambiado a null para manejar archivo
     nombres: "",
@@ -15,6 +17,8 @@ function UsuariosData() {
     fechaRegistro: "",
     password: "",
   });
+
+  console.log(formData.email);
 
   const handleChange = (e) => {
     const { id, value, type, files } = e.target;
@@ -241,4 +245,4 @@ function UsuariosData() {
   );
 }
 
-export default UsuariosData;
+export default RegistroDePersonalAIP;

@@ -1,0 +1,37 @@
+footer {
+    background-color: #343a40;
+    color: white;
+    font-family: 'Arial', sans-serif;
+}
+
+footer h3 {
+    font-size: 1.6rem;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+footer .btn {
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 30px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+footer .btn:hover {
+    background-color: #ffffff;
+    color: #343a40;
+}
+
+footer p {
+    font-size: 0.9rem;
+    opacity: 0.8;
+    margin-top: 20px;
+}
+.text-white {
+    padding: 10px !important;
+}
+
+.text-center a {
+    color: #FFF;
+    text-decoration: none;
+}
