@@ -1,14 +1,19 @@
-// AuthContext.js
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useState, useEffect } from "react";
 
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-  const [logged, setLogged] = useState(false);
-  const [userEmail, setUserEmail] = useState("");
-  const [cerrarModal, setCerrarModal] = useState(false);
+  const [logged, setLogged] = useState(sessionStorage.getItem("logged") === "true");
+  const [userEmail, setUserEmail] = useState(sessionStorage.getItem("userEmail") || "");
+  const [icon, setIcon] = useState("fa-regular fa-user");
 
-  console.log(logged);
+  // Guardar el estado en sessionStorage cada vez que cambie
+  useEffect(() => {
+    if (logged && userEmail) {
+      sessionStorage.setItem("logged", logged);
+      sessionStorage.setItem("userEmail", userEmail);
+    }
+  }, [logged, userEmail]);
 
   return (
     <AuthContext.Provider
@@ -17,8 +22,8 @@ export const AuthProvider = ({ children }) => {
         setLogged,
         userEmail,
         setUserEmail,
-        cerrarModal,
-        setCerrarModal,
+        icon,
+        setIcon,
       }}
     >
       {children}

@@ -1,6 +1,5 @@
 //import { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { AuthProvider } from "./AuthContext.jsx";
 import { useAuth } from "./AuthContext";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -19,29 +18,27 @@ function App() {
   console.log(logged, userEmail);
   return (
     <BrowserRouter>
-      <AuthProvider>
-        <Header />
+      <Header />
 
-        <Routes>
-          <Route
-            path="*"
-            element={
-              <>
-                <Navegacion />
-                <ListaOpciones />
-                <Footer />
-              </>
-            }
-          />
-          <Route path="/Ventas" element={<Ventas />} />
-          <Route path="/Alquileres" element={<Alquileres />} />
-          <Route
-            path="/AlquileresTemporarios"
-            element={<AlquileresTemporarios />}
-          />
-          <Route path="/EnPozo" element={<EnPozo />} />
-        </Routes>
-      </AuthProvider>
+      <Routes>
+        <Route
+          path="*"
+          element={
+            <>
+              <Navegacion />
+              <ListaOpciones />
+              <Footer />
+            </>
+          }
+        />
+        <Route path="/Ventas" element={<Ventas />} />
+        <Route path="/Alquileres" element={<Alquileres />} />
+        <Route
+          path="/AlquileresTemporarios"
+          element={<AlquileresTemporarios />}
+        />
+        <Route path="/EnPozo" element={<EnPozo />} />
+      </Routes>
     </BrowserRouter>
   );
 }
