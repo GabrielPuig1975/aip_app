@@ -1,0 +1,58 @@
+:root {
+  --col: #740404;
+  --backol: #740404;
+}
+.generalCards {
+  justify-content: space-between;
+  max-width: 1276px;
+}
+h4 {
+  margin: 0;
+  padding: 0;
+}
+.container {
+  flex-direction: column;
+}
+.container .volver {
+  margin-top: 0.066% 0% 2% 0%;
+  padding: 0.01%;
+  background-color: var(--backol);
+  width: 90px;
+}
+.titulo {
+  flex-direction: column;
+}
+.tituloVentas {
+  text-align: center;
+  color: var(--col);
+  font-family: "Roboto", "serif";
+  font-size: 50px;
+}
+.volver {
+  margin-bottom: 0.66%;
+}
+.card {
+  border: 3px solid var(--col);
+  max-width: 350px;
+}
+.card-header {
+  display: flex;
+  justify-content: center;
+}
+.card-body {
+  padding: 0px 12px 0px 12px !important;
+}
+.card img {
+  width: 250px;
+  height: 180px;
+}
+.card-title {
+  margin: 0;
+}
+.card_precio {
+  text-align: right;
+  margin: 0;
+}
+.verPropiedad {
+  color: var(--col);
+}

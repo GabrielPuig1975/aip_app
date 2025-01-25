@@ -1,4 +1,3 @@
-//import { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useAuth } from "./AuthContext";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
@@ -18,7 +17,7 @@ function App() {
   console.log(logged, userEmail);
   return (
     <BrowserRouter>
-      <Header />
+      <Header logged={logged} userEmail={userEmail} />
 
       <Routes>
         <Route

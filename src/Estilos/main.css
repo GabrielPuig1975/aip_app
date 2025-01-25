@@ -5,4 +5,6 @@ body {
   background-position: center center; /* Centra la imagen en la pantalla */
   height: 100vh; /* Asegura que el fondo cubra toda la altura de la pantalla */
   margin: 0; /* Elimina el margen predeterminado */
+  padding: 0;
+  box-sizing: border-box;
 }

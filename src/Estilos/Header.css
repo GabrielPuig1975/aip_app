@@ -6,7 +6,7 @@
   display: flex;
   justify-content: space-between; /* Esto alinea el logo y los íconos a los extremos */
   align-items: center; /* Alinea verticalmente los elementos */
-  padding: 20px; /* Puedes ajustar el espacio según sea necesario */
+  padding: 2px 2px 17px 2px; /* Puedes ajustar el espacio según sea necesario */
 }
 
 .title_img {

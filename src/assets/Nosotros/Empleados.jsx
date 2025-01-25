@@ -4,6 +4,7 @@ import Camila from './Camila.jpg';
 import FernandoTorino from './FernandoTorino.jpg';
 import Maty from './Maty.jpg';
 import Gaston from './Gaston.jpg';
+import AlejandroCarmiglio from './Alejandro.jpeg';
 
 const Empleados = [
   {
@@ -50,9 +51,9 @@ const Empleados = [
   },
   {
     id: 7,
-    img: Gaston,
+    img: AlejandroCarmiglio,
     alt: 'imagen.jpg',
-    nombre:'Gaston',
+    nombre:'Alejandro Carmiglio',
     texto: 'Lorem'
   },
 

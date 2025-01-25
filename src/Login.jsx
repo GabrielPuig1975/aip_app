@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useAuth } from "./AuthContext";
 import "./Estilos/Login_Invitados.css";
 
@@ -6,17 +6,9 @@ function Login({ cerrarModal }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-  const { setLogged, setUserEmail } = useAuth();
-  const {setIcon} = useAuth();
-  
-  const serverPort = import.meta.env.VITE_INVITADOS_SERVER_PORT;
+  const { setLogged, setUserEmail, setIcon } = useAuth();
 
-  // useEffect que se ejecuta cuando se actualiza el estado de "logged"
-  useEffect(() => {
-    if (setLogged) {
-      console.log("El estado de logged ha cambiado: ", setLogged);
-    }
-  }, [setLogged]);  // Solo se ejecutará cuando setLogged cambie.
+  const serverPort = import.meta.env.VITE_INVITADOS_SERVER_PORT;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -40,14 +32,12 @@ function Login({ cerrarModal }) {
       const data = await response.json();
       if (data.token) {
         document.cookie = `authToken=${data.token}; path=/; secure; HttpOnly`;
-      setLogged(true);
-      setUserEmail(email);
-      
-      // Guardar en sessionStorage
-      sessionStorage.setItem("logged", "true");
-      sessionStorage.setItem("userEmail", email);
 
-      cerrarModal();
+        setLogged(true);
+        setUserEmail(email);
+        setIcon("fa-solid fa-user-check");
+
+        cerrarModal();
       } else {
         throw new Error(data.error || "Error al autenticar");
       }
